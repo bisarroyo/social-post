@@ -1,13 +1,18 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Generador de Diseños</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="canvas-container">
+      <canvas id="design-canvas"></canvas>
+      <input type="color" id="color-selector" />
+      <input type="text" id="text-input" placeholder="Texto" />
+      <button id="export-image">Exportar Imagen</button>
+    </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
