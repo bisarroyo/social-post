@@ -8,9 +8,9 @@
   box-sizing: border-box;
 }
 body {
-  background: #474bff;
-  background: -webkit-linear-gradient(0deg, #474bff 0%, #bc48ff 100%);
-  background: linear-gradient(0deg, #474bff 0%, #bc48ff 100%);
+  background: #f4f4f4;
+  background: -webkit-linear-gradient(0deg, #f4f4f4 0%, #a1a1a1 100%);
+  background: linear-gradient(0deg, #f4f4f4 0%, #a1a1a1 100%);
 }
 main {
   width: 100%;
