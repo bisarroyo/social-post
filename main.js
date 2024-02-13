@@ -1,3 +1,5 @@
+import { animateResize } from './utils/animation-canvas'
+
 import './style.css'
 const canvas = document.getElementById('design-canvas')
 const ctx = canvas.getContext('2d')
@@ -9,12 +11,6 @@ const postRatio = document.getElementById('post')
 const landscapeRatio = document.getElementById('landscape')
 const verticalRatio = document.getElementById('vertical')
 const storiesRatio = document.getElementById('stories')
-
-// Función para cambiar el color de fondo del canvas
-function changeBackgroundColor(color) {
-  ctx.fillStyle = color
-  ctx.fillRect(0, 0, canvas.width, canvas.height)
-}
 
 // Función para cambiar el texto en el canvas
 function changeText(text) {
@@ -32,32 +28,29 @@ function initializeCanvas(width = 500, height = 500) {
 }
 
 //update canvas size
-function updateAspectRatioCanvas(width = 500, height = 500) {
-  canvas.width = width
-  canvas.height = height
-}
 postRatio.addEventListener('change', () => {
-  updateAspectRatioCanvas(500, 500)
+  animateResize(canvas, 500, 500)
 })
 
 landscapeRatio.addEventListener('change', () => {
-  updateAspectRatioCanvas(262, 500)
+  animateResize(canvas, 262, 500)
 })
 
 verticalRatio.addEventListener('change', () => {
-  updateAspectRatioCanvas(400, 500)
+  animateResize(canvas, 400, 500)
 })
 
 storiesRatio.addEventListener('change', () => {
-  updateAspectRatioCanvas(282, 500)
+  animateResize(canvas, 282, 500)
 })
 
 // Evento para cambiar el color de fondo
-document.addEventListener('change', function (event) {
-  if (event.target.type === 'color') {
-    changeBackgroundColor(event.target.value)
-  }
-})
+// Función para cambiar el color de fondo del canvas
+function changeBackgroundColor() {
+  const bgColor = colorInput.value
+  canvas.style.backgroundColor = bgColor
+}
+colorInput.addEventListener('input', changeBackgroundColor)
 
 // Evento para cambiar el texto
 textInput.addEventListener('input', function () {
@@ -105,3 +98,5 @@ function exportImage(resolutionWidth, resolutionHeight) {
 exportBtn.addEventListener('click', () => {
   exportImage(1080, 1920)
 })
+
+console.log(colorInput.value)

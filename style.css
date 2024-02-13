@@ -11,6 +11,7 @@ body {
   background: #f4f4f4;
   background: -webkit-linear-gradient(0deg, #f4f4f4 0%, #a1a1a1 100%);
   background: linear-gradient(0deg, #f4f4f4 0%, #a1a1a1 100%);
+  font-family: 'helvetica', sans-serif;
 }
 main {
   width: 100%;
@@ -74,12 +75,11 @@ main {
 }
 output {
   display: block;
-  color: #fff;
+  color: #000;
   font-size: 18px;
   text-align: center;
   text-transform: uppercase;
   line-height: 1em;
-  font-family: 'helvetica', sans-serif;
 }
 
 .selector-container {
