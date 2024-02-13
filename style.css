@@ -32,8 +32,6 @@ main {
 }
 
 #design-canvas {
-  width: 500px;
-  height: 500px;
   background-color: #fff;
   border: 1px solid #ffffff;
   border-radius: var(--radius-input);
