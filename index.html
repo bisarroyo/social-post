@@ -19,6 +19,33 @@
             />
             <output id="colorhex">#6600ff</output>
           </div>
+          <fieldset>
+            <legend>Select aspect ratio</legend>
+
+            <div>
+              <input type="radio" id="post" name="post" value="post" checked />
+              <label for="post">Post</label>
+            </div>
+
+            <div>
+              <input
+                type="radio"
+                id="landscape"
+                name="post"
+                value="landscape"
+              />
+              <label for="landscape">Landscape</label>
+            </div>
+
+            <div>
+              <input type="radio" id="vertical" name="post" value="vertical" />
+              <label for="vertical">Vertical</label>
+            </div>
+            <div>
+              <input type="radio" id="stories" name="post" value="stories" />
+              <label for="stories">Stories</label>
+            </div>
+          </fieldset>
           <input type="text" id="text-input" placeholder="Texto" />
           <button id="export-image">Exportar Imagen</button>
         </div>
