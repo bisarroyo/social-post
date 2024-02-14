@@ -2,16 +2,21 @@ import { animateResize } from './utils/animation-canvas'
 import { exportImage } from './utils/export-canvas'
 
 import './style.css'
-const canvas = document.getElementById('design-canvas')
-const ctx = canvas.getContext('2d')
-const textInput = document.getElementById('text-input')
-const colorInput = document.getElementById('color-selector')
-const exportBtn = document.getElementById('export-image')
 
-const postRatio = document.getElementById('post')
-const landscapeRatio = document.getElementById('landscape')
-const verticalRatio = document.getElementById('vertical')
-const storiesRatio = document.getElementById('stories')
+// import elements
+import canvasModule from './utils/dom-elements'
+
+const {
+  canvas,
+  ctx,
+  textInput,
+  colorInput,
+  exportBtn,
+  postRatio,
+  landscapeRatio,
+  verticalRatio,
+  storiesRatio
+} = canvasModule
 
 // canvas initialization
 function initializeCanvas(width = 500, height = 500) {
@@ -63,7 +68,7 @@ textInput.addEventListener('input', function () {
   drawText(textInput.value)
 })
 
-// Inicializar el canvas
+// initialize canva
 initializeCanvas()
 
 exportBtn.addEventListener('click', () => {
