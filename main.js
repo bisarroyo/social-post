@@ -12,12 +12,6 @@ const landscapeRatio = document.getElementById('landscape')
 const verticalRatio = document.getElementById('vertical')
 const storiesRatio = document.getElementById('stories')
 
-// Función para cambiar el texto en el canvas
-function changeText(text) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
-  ctx.fillText(text, canvas.width / 2, canvas.height / 2)
-}
-
 // canvas initialization
 function initializeCanvas(width = 500, height = 500) {
   canvas.width = width
@@ -52,9 +46,21 @@ function changeBackgroundColor() {
 }
 colorInput.addEventListener('input', changeBackgroundColor)
 
+// Función para cambiar el texto en el canvas
+function drawText(text) {
+  const backgroundColor = getComputedStyle(canvas).backgroundColor
+  ctx.fillStyle = backgroundColor // Utiliza el color de fondo del canvas
+  ctx.fillRect(0, 0, canvas.width, canvas.height) // Limpia el canvas
+  ctx.fillStyle = '#000' // Color del texto
+  ctx.font = '20px Arial'
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  ctx.fillText(text, canvas.width / 2, canvas.height / 2)
+}
+
 // Evento para cambiar el texto
 textInput.addEventListener('input', function () {
-  changeText(textInput.value)
+  drawText(textInput.value)
 })
 
 // Inicializar el canvas
