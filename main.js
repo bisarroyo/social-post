@@ -1,4 +1,5 @@
 import { animateResize } from './utils/animation-canvas'
+import { exportImage } from './utils/export-canvas'
 
 import './style.css'
 const canvas = document.getElementById('design-canvas')
@@ -38,15 +39,14 @@ storiesRatio.addEventListener('change', () => {
   animateResize(canvas, 282, 500)
 })
 
-// Evento para cambiar el color de fondo
-// Función para cambiar el color de fondo del canvas
+// change color background
 function changeBackgroundColor() {
   const bgColor = colorInput.value
   canvas.style.backgroundColor = bgColor
 }
 colorInput.addEventListener('input', changeBackgroundColor)
 
-// Función para cambiar el texto en el canvas
+// update text in the canvas
 function drawText(text) {
   const backgroundColor = getComputedStyle(canvas).backgroundColor
   ctx.fillStyle = backgroundColor // Utiliza el color de fondo del canvas
@@ -66,43 +66,6 @@ textInput.addEventListener('input', function () {
 // Inicializar el canvas
 initializeCanvas()
 
-// Función para exportar la imagen
-function exportImage(resolutionWidth, resolutionHeight) {
-  //save actual canvas size
-  const currentWidth = canvas.width
-  const currentHeight = canvas.height
-
-  // set new canvas size
-  canvas.width = resolutionWidth
-  canvas.height = resolutionHeight
-
-  //draw the content of original canvas in the new size
-  ctx.drawImage(
-    canvas,
-    0,
-    0,
-    currentWidth,
-    currentHeight,
-    0,
-    0,
-    resolutionWidth,
-    resolutionHeight
-  )
-
-  const imageData = canvas.toDataURL('image/png')
-
-  //restore original size
-  canvas.width = currentWidth
-  canvas.height = currentHeight
-
-  const link = document.createElement('a')
-  link.href = imageData
-  link.download = 'post.png'
-  link.click()
-}
-
 exportBtn.addEventListener('click', () => {
-  exportImage(1080, 1920)
+  exportImage(canvas, 1080, 1920)
 })
-
-console.log(colorInput.value)
